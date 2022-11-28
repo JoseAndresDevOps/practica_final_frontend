@@ -47,8 +47,13 @@ spec:
       }
     }
 
+    stage('Run function testing E2E') {
+      steps {
+        sh 'npm clean verify -Dwebdriver.remote.url="https://standalone-chrome.default:4444" -Dwebdriver.remote.driver=chrome -Dchrome.switches="--no-sandbox,--ignore-certificate-errors,--homepage=about:blank,--no-first-run,--headless"'
+      }
+    }
 
-
+/*
     stage('Push Image to Docker Hub') {
       steps {
         script {
@@ -76,7 +81,7 @@ spec:
       }
     }
 
-
+*/
 
     stage('Deploy to K8s') {
       steps{
