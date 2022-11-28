@@ -76,7 +76,7 @@ spec:
     }
 
 
-/*
+
     stage('Deploy to K8s') {
       steps{
         script {
@@ -90,7 +90,7 @@ spec:
         sh 'kubectl apply -f configuracion/kubernetes-deployment/angular-14-app/manifest.yml -n default --kubeconfig=configuracion/kubernetes-config/config'
       }
     }
-*/
+
 
   }
 
