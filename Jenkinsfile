@@ -42,6 +42,7 @@ spec:
 
         sh 'npm install'
         sh 'npm run build &'
+        sh 'npm package'
         sleep 20
       }
     }
