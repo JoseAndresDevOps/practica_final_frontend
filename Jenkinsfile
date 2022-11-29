@@ -23,8 +23,7 @@ spec:
     - sleep
     args:
     - infinity
-        '''
-        yaml '''
+---
 apiVersion: v1
 kind: Pod
 spec:
