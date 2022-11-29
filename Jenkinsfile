@@ -14,6 +14,13 @@ spec:
       name: docker-socket-volume
     securityContext:
       privileged: true
+  - name: shell2
+    image: joseandresdevops/nuevojava:6.0
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: docker-socket-volume
+    securityContext:
+      privileged: true
   volumes:
   - name: docker-socket-volume
     hostPath:
@@ -48,8 +55,10 @@ spec:
     }
 
     stage('Run function testing E2E') {
-      steps {
-        sh 'mvn clean verify -Dwebdriver.remote.url="https://standalone-chrome.default:4444" -Dwebdriver.remote.driver=chrome -Dchrome.switches="--no-sandbox,--ignore-certificate-errors,--homepage=about:blank,--no-first-run,--headless"'
+      container('shell2'){
+        steps {
+          sh 'mvn clean verify -Dwebdriver.remote.url="https://standalone-chrome.default:4444" -Dwebdriver.remote.driver=chrome -Dchrome.switches="--no-sandbox,--ignore-certificate-errors,--homepage=about:blank,--no-first-run,--headless"'
+        }
       }
     }
 
