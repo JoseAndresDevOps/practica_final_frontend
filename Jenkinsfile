@@ -93,7 +93,7 @@ spec:
       }
     }
 */
-/*
+
     stage('Push Image to Docker Hub') {
       steps {
         script {
@@ -121,7 +121,6 @@ spec:
       }
     }
 
-*/
 
     stage('Deploy to K8s') {
       steps{
