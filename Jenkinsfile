@@ -65,6 +65,10 @@ spec:
         '''
         }
       }
+              steps {
+          sh 'mvn clean verify -Dwebdriver.remote.url="https://standalone-chrome.default:4444" -Dwebdriver.remote.driver=chrome -Dchrome.switches="--no-sandbox,--ignore-certificate-errors,--homepage=about:blank,--no-first-run,--headless"'
+        //}
+      }
     }
 
 
@@ -78,7 +82,7 @@ spec:
         sleep 20
       }
     }
-
+/*
     stage('Run function testing E2E') {
       //container('shell2'){
         steps {
@@ -86,7 +90,7 @@ spec:
         //}
       }
     }
-
+*/
 /*
     stage('Push Image to Docker Hub') {
       steps {
