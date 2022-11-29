@@ -77,7 +77,7 @@ spec:
         }
       }
               steps {
-          sh 'mvn clean verify -Dwebdriver.remote.url="https://{ngrokUrl}/wd/hub" -Dwebdriver.remote.driver=chrome -Dchrome.switches="--no-sandbox,--ignore-certificate-errors,--homepage=about:blank,--no-first-run,--headless"'
+         // sh 'mvn clean verify -Dwebdriver.remote.url="https://{ngrokUrl}/wd/hub" -Dwebdriver.remote.driver=chrome -Dchrome.switches="--no-sandbox,--ignore-certificate-errors,--homepage=about:blank,--no-first-run,--headless"'
         //}
       }
     }
