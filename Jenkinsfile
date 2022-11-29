@@ -9,6 +9,11 @@ spec:
   containers:
   - name: shell
     image: joseandresdevops/nodonodejs:1.0
+    volumeMounts:
+    - mountPath: /var/run/docker.sock
+      name: docker-socket-volume
+    securityContext:
+      privileged: true
   - name: shell2
     image: joseandresdevops/nuevojava:6.0
     volumeMounts:
