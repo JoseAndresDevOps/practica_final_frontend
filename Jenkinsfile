@@ -23,7 +23,25 @@ spec:
     - sleep
     args:
     - infinity
----
+        '''
+
+        defaultContainer 'shell'
+      }
+  }
+
+
+  environment {
+    registryCredential='docker-hub-credentials'
+    registryFrontend = 'joseandresdevops/angular-14-app'
+  }
+
+
+  stages {
+
+    stage('Run maven') {
+      agent{
+        kubernetes{
+          yaml '''
 apiVersion: v1
 kind: Pod
 spec:
@@ -45,18 +63,12 @@ spec:
     args:
     - infinity
         '''
-        defaultContainer 'shell'
+        }
       }
-  }
+    }
 
 
-  environment {
-    registryCredential='docker-hub-credentials'
-    registryFrontend = 'joseandresdevops/angular-14-app'
-  }
 
-
-  stages {
     stage('Build') {
       steps {
 
