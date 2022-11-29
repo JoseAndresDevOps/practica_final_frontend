@@ -14,13 +14,6 @@ spec:
       name: docker-socket-volume
     securityContext:
       privileged: true
-  - name: shell2
-    image: joseandresdevops/nuevojava:6.0
-    volumeMounts:
-    - mountPath: /var/run/docker.sock
-      name: docker-socket-volume
-    securityContext:
-      privileged: true
   volumes:
   - name: docker-socket-volume
     hostPath:
