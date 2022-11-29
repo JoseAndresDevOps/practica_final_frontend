@@ -38,6 +38,17 @@ spec:
 
   stages {
 
+
+    stage('Build') {
+      steps {
+
+        sh 'npm install'
+        sh 'npm run build &'
+        //sh 'npm package'
+        sleep 20
+      }
+    }
+
     stage('Run maven') {
       agent{
         kubernetes{
@@ -66,22 +77,13 @@ spec:
         }
       }
               steps {
-          sh 'mvn clean verify -Dwebdriver.remote.url="http://localhost:4444" -Dwebdriver.remote.driver=chrome -Dchrome.switches="--no-sandbox,--ignore-certificate-errors,--homepage=about:blank,--no-first-run,--headless"'
+          sh 'mvn clean verify -Dwebdriver.remote.url="https://{ngrokUrl}/wd/hub" -Dwebdriver.remote.driver=chrome -Dchrome.switches="--no-sandbox,--ignore-certificate-errors,--homepage=about:blank,--no-first-run,--headless"'
         //}
       }
     }
 
 
 
-    stage('Build') {
-      steps {
-
-        sh 'npm install'
-        sh 'npm run build &'
-        //sh 'npm package'
-        sleep 20
-      }
-    }
 /*
     stage('Run function testing E2E') {
       //container('shell2'){
