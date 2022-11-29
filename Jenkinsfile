@@ -24,11 +24,7 @@ spec:
     args:
     - infinity
         '''
-
-        defaultContainer 'shell'
-      }
-      kubernetes {
-          yaml '''
+        yaml '''
 apiVersion: v1
 kind: Pod
 spec:
@@ -50,7 +46,8 @@ spec:
     args:
     - infinity
         '''
-        }
+        defaultContainer 'shell'
+      }
   }
 
 
