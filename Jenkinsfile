@@ -98,8 +98,8 @@ spec:
       steps {
         script {
 
-          dockerImage = docker.build registryFrontend + ":$BUILD_NUMBER"
           docker.withRegistry( '', registryCredential) {
+            dockerImage = docker.build(registryFrontend + ":$BUILD_NUMBER")
             dockerImage.push()
           }
         }
