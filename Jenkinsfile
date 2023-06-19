@@ -32,7 +32,7 @@ spec:
 
   environment {
     registryCredential='docker-hub-credentials'
-    registryFrontend = 'juanllorenzogomis/practica-final-frontend:latest'
+    registryFrontend = 'joseandresdevops/angular-14-app:latest'
   }
 
 
